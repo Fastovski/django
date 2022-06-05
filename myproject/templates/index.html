@@ -1,0 +1,14 @@
+<h1>22vek представляет<br><br></h1>
+<a href="{% url 'register' %}">Зарегестрироваться<br></br></a>
+
+<a href="{% url 'login' %}">Логин<br></br></a>
+
+<a href='./admin'>Админка<br></br></a>
+
+<a href="{% url 'pr' %}"><h5>Посмотреть товарный перечень</h5></a>
+
+{% for kek in usernamevote%}
+    {%if kek.is_voted == False%}
+        <a href="{% url 'expertmark' %}">Поставить оценки</a>
+    {%endif%}
+{%endfor%}

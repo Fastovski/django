@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Перечень товаров</title>
+</head>
+<body>
+    <a href="{% url 'ordername' %}"><h5>Отсортировать по имени</h5></a>
+    <a href="{% url 'ordercost' %}"><h5>Отсортировать по цене</h5></a>
+    <a href="{% url 'ordersupplier' %}"><h5>Отсортировать по поставщику</h5><br></a>
+    <form method="POST">
+        <h2>Перечень товаров</h2>
+        {% for s in sp %}
+        <h3>{{s.name}} </h3>
+            {% for p in pr %}
+                {% if p.supplier.name == s.name %}
+                    <h3>{{p.name}} {{p.cost}}p</h3> <address>Контактный номер: +{{p.number}}</address>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <br>
+    </form>
+    <!-- <a href="{% url 'ordername' %}"><h5>Информация о поставщиках</h5></a> -->
+<!-- </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<head>
+    <h3>Информация о поставщиках</h3>
+
+</head>
+<body>
+    <form method="POST">
+        {% for s in sp %}
+        <h3>{{s.name}} </h3>
+        <h4>{{s.location}} || {{s.type}}</h4> 
+    </form>
+</body> --> 

@@ -1,0 +1,31 @@
+<!-- <form method="POST" action="register">
+    {% csrf_token %}
+<p>USERNAME</p>
+<input type="text" name="username"/>
+<p>EMAIL</p>
+<input type="email" name="email" />
+<p>PASSWORD</p>
+<input type="password" name="password" />
+<p>REPEAT YOUR PASSWORD</p>
+<input type="password1" name="password1"/>
+<br/>
+<br/>
+<input type="submit" />    
+</form> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Регистрация</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Send" >
+    </form>
+</body>
+</html>
+
