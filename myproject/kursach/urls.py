@@ -16,4 +16,5 @@ urlpatterns=[
     path ('logout', views.logout, name='logout'),
     path ('searchprod', views.searchprod, name='searchprod'),
     path ('search', views.search, name='search'),
+    path ('logout', views.logout, name = 'logout'),
 ]

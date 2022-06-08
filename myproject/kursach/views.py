@@ -6,10 +6,30 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import Products, Supplier, ProductVote, ExpertVoted
-
 from kursach.forms import RegForm, LogForm, ExpertForm, searchpr
 
 
+
+class da():
+    def regform():pass
+    def logform():pass
+    def searchpr():pass
+
+class da2(da):
+    def regform(self):  
+        form=RegForm()
+
+        return form
+
+class da3(da):
+    def logform(self):  
+        form=LogForm()
+        return form
+        
+class da4(da):
+    def searchpr(self):  
+        form=searchpr()
+        return form
 
 def index(request):
     username = request.user.username
@@ -18,7 +38,9 @@ def index(request):
     return render(request, 'index.html', context=data)
     
 def register(request):
-    form = RegForm ()
+    # form = RegForm ()
+    form2 = da2()
+    form = form2.regform()
     if request.method == 'POST':
         username = request.POST ['username']
         email = request.POST ['email']
@@ -45,7 +67,9 @@ def register(request):
         
 
 def login(request):
-    form = LogForm ()
+    # form = LogForm ()
+    form3 = da3()
+    form = form3.logform()
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -73,15 +97,15 @@ def products(request):
 def ordername(request):
     sp = Supplier.objects.all()
     pr = Products.objects.order_by('name')
-
     data ={'pr':pr,'sp':sp}
     return render (request, 'product.html', data)
+
 def ordercost(request):
     sp = Supplier.objects.all()
     pr = Products.objects.order_by('cost')
-
     data ={'pr':pr,'sp':sp}
     return render (request, 'product.html', data)
+
 def ordersupplier(request):
     sp = Supplier.objects.order_by('name')
     pr = Products.objects.all()
@@ -96,6 +120,8 @@ def search (request):
     return render (request, 'search.html')
 
 def searchprod(request):
+    form4 = da4()
+    form = form4.searchpr()
     if request.method == 'POST':
         name = request.POST['pr']
         prods = Products.objects.filter(name=name)
