@@ -18,7 +18,6 @@ class da():
 class da2(da):
     def regform(self):  
         form=RegForm()
-
         return form
 
 class da3(da):
